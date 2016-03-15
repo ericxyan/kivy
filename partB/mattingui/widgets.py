@@ -126,7 +126,11 @@ class RootWidget(FloatLayout):
 #########################################
 ## PLACE YOUR CODE BETWEEN THESE LINES ##
 #########################################
-        self.mattingControl.runAlgorithm()
+        success, text = self.mattingControl.runAlgorithm()
+        if not success:
+            popup = Popup(title='Failed', content=Label(text='Run algorithm failed!'), size_hint=(0.4, 0.4))
+            popup.open()
+
 #########################################
         return
 
